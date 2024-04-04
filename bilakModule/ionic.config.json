@@ -1,0 +1,7 @@
+{
+  "name": "bilakModule",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,15 @@
+<form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+  <ion-item>
+    <ion-label position="floating">Кількість трикутників</ion-label>
+    <ion-input formControlName="trianglesCount" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Кількість кіл</ion-label>
+    <ion-input formControlName="diskCount" type="number"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" type="submit" [disabled]="!dataForm.valid"
+    >Відправити</ion-button
+  >
+</form>

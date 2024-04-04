@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Ionic App </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-data-input (formData)="onReceiveFormData($event)"></app-data-input>
+
+        <div *ngIf="receivedFormData && receivedFormData.shapes.length > 0">
+          <h3>Результати:</h3>
+          <ion-list>
+            <ion-item *ngFor="let shape of receivedFormData.shapes">
+              <ion-label>
+                <h4>{{ shape.name }}</h4>
+                <p>{{shape.data}}</p>
+                <p>Периметр: {{ shape.perimeter }}</p>
+                <p>Площа:{{ shape.area }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

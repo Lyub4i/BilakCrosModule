@@ -9,22 +9,26 @@ export class CalculationService {
 
   calculatePerimeter(shape: IShape): number {
     const perimeter = shape.Perimeter();
+
     if (perimeter < 0) {
       console.log('Perimeter less than zero!');
       return 0;
     }
 
-    return Math.round(perimeter * 100) / 100;
+    const perimeterFixed = Math.round(perimeter * 100) / 100;
+    return perimeterFixed;
   }
 
   calculateArea(shape: IShape): number {
     const area = shape.Area();
+
     if (area < 0) {
       console.log('Area less than zero!');
       return 0;
     }
 
-    return Math.round(area * 100) / 100;
+    const areaFixed = Math.round(area * 100) / 100;
+    return areaFixed;
   }
 
   showInfoAboutAllShapes(shapes: IShape[]) {

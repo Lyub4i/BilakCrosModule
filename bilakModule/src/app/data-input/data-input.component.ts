@@ -42,11 +42,7 @@ export class DataInputComponent implements OnInit {
           let name: string;
 
           if (type === 'triangle') {
-            shape = new Triangle(
-              Math.random() * 10 + 1,
-              Math.random() * 10 + 1,
-              Math.random() * 10 + 1
-            );
+            shape = this.generateValidTriangle();
             name = 'Трикутник' + (index + 1);
           } else {
             shape = new Disk(Math.random() * 10 + 1);
@@ -73,5 +69,21 @@ export class DataInputComponent implements OnInit {
 
       this.formData.emit(result);
     }
+  }
+
+  generateValidTriangle(): Triangle {
+    let sideA, sideB, sideC;
+
+    do {
+      sideA = Math.random() * 10 + 1;
+      sideB = Math.random() * 10 + 1;
+      sideC = Math.random() * 10 + 1;
+    } while (!this.isValidTriangle(sideA, sideB, sideC));
+
+    return new Triangle(sideA, sideB, sideC);
+  }
+
+  isValidTriangle(a: number, b: number, c: number): boolean {
+    return a + b > c && a + c > b && b + c > a;
   }
 }

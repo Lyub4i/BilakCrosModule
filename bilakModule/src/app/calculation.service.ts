@@ -26,4 +26,10 @@ export class CalculationService {
 
     return Math.round(area * 100) / 100;
   }
+
+  showInfoAboutAllShapes(shapes: IShape[]) {
+    shapes.forEach((shape) => {
+      console.log(shape.ToString());
+    });
+  }
 }
